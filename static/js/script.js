@@ -1,896 +1,795 @@
-function getLetterPatterns() {
-    return {
-        // Uppercase Letters (A-Z)
-        'A': [{x:3,y:0},{x:2,y:1},{x:4,y:1},{x:1,y:2},{x:5,y:2},{x:0,y:3},{x:6,y:3},{x:0,y:4},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:5,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:0,y:7},{x:6,y:7}],
-        'B': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:0,y:1},{x:5,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'C': [{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:0,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'D': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:0,y:1},{x:5,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:6,y:3},{x:0,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:5,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'E': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:6,y:7}],
-        'F': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7}],
-        'G': [{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:0,y:3},{x:0,y:4},{x:4,y:4},{x:5,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'H': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:3},{x:6,y:3},{x:0,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:0,y:7},{x:6,y:7}],
-        'I': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:2,y:1},{x:2,y:2},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'J': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},{x:3,y:1},{x:3,y:2},{x:3,y:3},{x:3,y:4},{x:3,y:5},{x:0,y:6},{x:3,y:6},{x:1,y:7},{x:2,y:7}],
-        'K': [{x:0,y:0},{x:5,y:0},{x:0,y:1},{x:4,y:1},{x:0,y:2},{x:3,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:0,y:4},{x:2,y:4},{x:0,y:5},{x:3,y:5},{x:0,y:6},{x:4,y:6},{x:0,y:7},{x:5,y:7}],
-        'L': [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:6,y:7}],
-        'M': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:1,y:1},{x:5,y:1},{x:6,y:1},{x:0,y:2},{x:2,y:2},{x:4,y:2},{x:6,y:2},{x:0,y:3},{x:3,y:3},{x:6,y:3},{x:0,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:0,y:7},{x:6,y:7}],
-        'N': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:1,y:1},{x:6,y:1},{x:0,y:2},{x:2,y:2},{x:6,y:2},{x:0,y:3},{x:3,y:3},{x:6,y:3},{x:0,y:4},{x:4,y:4},{x:6,y:4},{x:0,y:5},{x:5,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:0,y:7},{x:6,y:7}],
-        'O': [{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:6,y:3},{x:0,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'P': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:0,y:1},{x:5,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7}],
-        'Q': [{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:6,y:3},{x:0,y:4},{x:4,y:4},{x:6,y:4},{x:0,y:5},{x:5,y:5},{x:6,y:5},{x:1,y:6},{x:4,y:6},{x:6,y:6},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:7,y:7}],
-        'R': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:0,y:1},{x:5,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:2,y:4},{x:0,y:5},{x:3,y:5},{x:0,y:6},{x:4,y:6},{x:0,y:7},{x:5,y:7}],
-        'S': [{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:4},{x:6,y:5},{x:0,y:6},{x:6,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'T': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},{x:3,y:1},{x:3,y:2},{x:3,y:3},{x:3,y:4},{x:3,y:5},{x:3,y:6},{x:3,y:7}],
-        'U': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:6,y:3},{x:0,y:4},{x:6,y:4},{x:0,y:5},{x:6,y:5},{x:1,y:6},{x:5,y:6},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'V': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:6,y:1},{x:1,y:2},{x:5,y:2},{x:1,y:3},{x:5,y:3},{x:2,y:4},{x:4,y:4},{x:2,y:5},{x:4,y:5},{x:3,y:6},{x:3,y:7}],
-        'W': [{x:0,y:0},{x:6,y:0},{x:0,y:1},{x:6,y:1},{x:0,y:2},{x:6,y:2},{x:0,y:3},{x:3,y:3},{x:6,y:3},{x:0,y:4},{x:2,y:4},{x:4,y:4},{x:6,y:4},{x:0,y:5},{x:2,y:5},{x:4,y:5},{x:6,y:5},{x:1,y:6},{x:5,y:6},{x:1,y:7},{x:5,y:7}],
-        'X': [{x:0,y:0},{x:6,y:0},{x:1,y:1},{x:5,y:1},{x:2,y:2},{x:4,y:2},{x:3,y:3},{x:3,y:4},{x:2,y:5},{x:4,y:5},{x:1,y:6},{x:5,y:6},{x:0,y:7},{x:6,y:7}],
-        'Y': [{x:0,y:0},{x:6,y:0},{x:1,y:1},{x:5,y:1},{x:2,y:2},{x:4,y:2},{x:3,y:3},{x:3,y:4},{x:3,y:5},{x:3,y:6},{x:3,y:7}],
-        'Z': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},{x:5,y:1},{x:4,y:2},{x:3,y:3},{x:2,y:4},{x:1,y:5},{x:0,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:6,y:7}],
+/* <JS> */
 
-        // Lowercase Letters (a-z)
-        'a': [{x:1,y:2},{x:2,y:2},{x:3,y:2},{x:4,y:2},{x:5,y:3},{x:0,y:4},{x:5,y:4},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'b': [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'c': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'd': [{x:5,y:0},{x:5,y:1},{x:5,y:2},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        'e': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:5},{x:0,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'f': [{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:1,y:2},{x:1,y:3},{x:0,y:4},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:1,y:5},{x:1,y:6},{x:1,y:7}],
-        'g': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:1,y:6},{x:2,y:6},{x:3,y:6},{x:4,y:6},{x:5,y:6},{x:5,y:7},{x:1,y:8},{x:2,y:8},{x:3,y:8},{x:4,y:8}],
-        'h': [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:0,y:4},{x:4,y:4},{x:0,y:5},{x:4,y:5},{x:0,y:6},{x:4,y:6},{x:0,y:7},{x:4,y:7}],
-        'i': [{x:2,y:1},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:2,y:7}],
-        'j': [{x:3,y:1},{x:3,y:3},{x:3,y:4},{x:3,y:5},{x:3,y:6},{x:3,y:7},{x:0,y:8},{x:1,y:8},{x:2,y:8}],
-        'k': [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:4,y:3},{x:0,y:4},{x:3,y:4},{x:0,y:5},{x:1,y:5},{x:2,y:5},{x:0,y:6},{x:3,y:6},{x:0,y:7},{x:4,y:7}],
-        'l': [{x:2,y:0},{x:2,y:1},{x:2,y:2},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:3,y:7}],
-        'm': [{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:4,y:3},{x:5,y:3},{x:0,y:4},{x:3,y:4},{x:6,y:4},{x:0,y:5},{x:3,y:5},{x:6,y:5},{x:0,y:6},{x:3,y:6},{x:6,y:6},{x:0,y:7},{x:3,y:7},{x:6,y:7}],
-        'n': [{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:0,y:4},{x:4,y:4},{x:0,y:5},{x:4,y:5},{x:0,y:6},{x:4,y:6},{x:0,y:7},{x:4,y:7}],
-        'o': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'p': [{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:1,y:6},{x:2,y:6},{x:3,y:6},{x:4,y:6},{x:0,y:7},{x:0,y:8}],
-        'q': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:1,y:6},{x:2,y:6},{x:3,y:6},{x:4,y:6},{x:5,y:6},{x:5,y:7},{x:5,y:8}],
-        'r': [{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:0,y:4},{x:4,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7}],
-        's': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:0,y:4},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        't': [{x:2,y:1},{x:2,y:2},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:3,y:7},{x:4,y:7}],
-        'u': [{x:0,y:3},{x:4,y:3},{x:0,y:4},{x:4,y:4},{x:0,y:5},{x:4,y:5},{x:0,y:6},{x:4,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        'v': [{x:0,y:3},{x:4,y:3},{x:0,y:4},{x:4,y:4},{x:1,y:5},{x:3,y:5},{x:1,y:6},{x:3,y:6},{x:2,y:7}],
-        'w': [{x:0,y:3},{x:3,y:3},{x:6,y:3},{x:0,y:4},{x:3,y:4},{x:6,y:4},{x:0,y:5},{x:3,y:5},{x:6,y:5},{x:1,y:6},{x:2,y:6},{x:4,y:6},{x:5,y:6},{x:2,y:7},{x:4,y:7}],
-        'x': [{x:0,y:3},{x:4,y:3},{x:1,y:4},{x:3,y:4},{x:2,y:5},{x:1,y:6},{x:3,y:6},{x:0,y:7},{x:4,y:7}],
-        'y': [{x:0,y:3},{x:4,y:3},{x:0,y:4},{x:4,y:4},{x:1,y:5},{x:3,y:5},{x:2,y:6},{x:2,y:7},{x:1,y:8}],
-        'z': [{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:3,y:4},{x:2,y:5},{x:1,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
+/* <Global Variables> */
+const desktop = document.getElementById('desktop');
+const contextMenu = document.getElementById('context-menu');
+const startButton = document.getElementById('start-button');
+const startMenu = document.getElementById('start-menu');
+let taskbarManagement;
+let highestZIndex = 1000;
+/* </Global Variables> */
 
-        // Numbers (0-9)
-        '0': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:5,y:3},{x:0,y:4},{x:5,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '1': [{x:2,y:1},{x:1,y:2},{x:2,y:2},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7}],
-        '2': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:5,y:3},{x:4,y:4},{x:3,y:5},{x:2,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        '3': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:5,y:3},{x:3,y:4},{x:4,y:4},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '4': [{x:4,y:1},{x:3,y:2},{x:4,y:2},{x:2,y:3},{x:4,y:3},{x:1,y:4},{x:4,y:4},{x:0,y:5},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:5},{x:4,y:6},{x:4,y:7}],
-        '5': [{x:0,y:1},{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:5,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:4},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '6': [{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:1,y:2},{x:0,y:3},{x:0,y:4},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '7': [{x:0,y:1},{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:5,y:1},{x:5,y:2},{x:4,y:3},{x:3,y:4},{x:2,y:5},{x:2,y:6},{x:2,y:7}],
-        '8': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:5,y:3},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:0,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '9': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:5,y:3},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:5,y:4},{x:5,y:5},{x:4,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7}],
+/* <Icon Data> */
+let icons = [
+    { name: 'My Computer', x: 20, y: 20, svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/></svg>' },
+    { name: 'Recycle Bin', x: 20, y: 110, svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>' },
+    { name: 'My Documents', x: 20, y: 200, svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z"/></svg>' },
+    { name: 'Chat', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>' },
+    { name: 'Art', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>' },
+    { name: 'Today', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>' },
+    { name: 'Academy', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>' },
+    { name: 'Work', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>' },
+    { name: 'Fun', svg: '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' }
+];
+/* </Icon Data> */
 
-        // Common Symbols
-        '.': [{x:2,y:7},{x:3,y:7}],
-        ',': [{x:2,y:7},{x:3,y:7},{x:2,y:8}],
-        '!': [{x:2,y:1},{x:2,y:2},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:7}],
-        '?': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:5,y:3},{x:4,y:4},{x:3,y:5},{x:3,y:7}],
-        ':': [{x:2,y:2},{x:3,y:2},{x:2,y:6},{x:3,y:6}],
-        ';': [{x:2,y:2},{x:3,y:2},{x:2,y:6},{x:3,y:6},{x:2,y:7}],
-        '+': [{x:3,y:2},{x:3,y:3},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:5,y:4},{x:3,y:5},{x:3,y:6}],
-        '=': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5}],
-        '/': [{x:5,y:1},{x:4,y:2},{x:3,y:3},{x:2,y:4},{x:1,y:5},{x:0,y:6}],
-        '\\': [{x:0,y:1},{x:1,y:2},{x:2,y:3},{x:3,y:4},{x:4,y:5},{x:5,y:6}],
-        '(': [{x:3,y:1},{x:2,y:2},{x:1,y:3},{x:1,y:4},{x:1,y:5},{x:2,y:6},{x:3,y:7}],
-        ')': [{x:2,y:1},{x:3,y:2},{x:4,y:3},{x:4,y:4},{x:4,y:5},{x:3,y:6},{x:2,y:7}],
-        '[': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:1,y:2},{x:1,y:3},{x:1,y:4},{x:1,y:5},{x:1,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7}],
-        ']': [{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:4,y:2},{x:4,y:3},{x:4,y:4},{x:4,y:5},{x:4,y:6},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '{': [{x:3,y:1},{x:2,y:2},{x:2,y:3},{x:1,y:4},{x:2,y:5},{x:2,y:6},{x:3,y:7}],
-        '}': [{x:2,y:1},{x:3,y:2},{x:3,y:3},{x:4,y:4},{x:3,y:5},{x:3,y:6},{x:2,y:7}],
-        '*': [{x:2,y:2},{x:4,y:2},{x:3,y:3},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:5,y:4},{x:3,y:5},{x:2,y:6},{x:4,y:6}],
-        '&': [{x:2,y:1},{x:3,y:1},{x:1,y:2},{x:4,y:2},{x:1,y:3},{x:2,y:3},{x:4,y:3},{x:1,y:4},{x:3,y:4},{x:0,y:5},{x:2,y:5},{x:4,y:5},{x:0,y:6},{x:2,y:6},{x:5,y:6},{x:1,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-        '@': [{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:5,y:2},{x:0,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:3},{x:0,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:5,y:4},{x:0,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:5},{x:0,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7}],
-        '#': [{x:1,y:1},{x:4,y:1},{x:1,y:2},{x:4,y:2},{x:0,y:3},{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3},{x:5,y:3},{x:1,y:4},{x:4,y:4},{x:0,y:5},{x:1,y:5},{x:2,y:5},{x:3,y:5},{x:4,y:5},{x:5,y:5},{x:1,y:6},{x:4,y:6},{x:1,y:7},{x:4,y:7}],
-        '$': [{x:2,y:0},{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1},{x:0,y:2},{x:2,y:2},{x:5,y:2},{x:2,y:3},{x:1,y:4},{x:2,y:4},{x:3,y:4},{x:4,y:4},{x:2,y:5},{x:5,y:5},{x:0,y:6},{x:2,y:6},{x:5,y:6},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:2,y:8}],
-        '%': [{x:0,y:1},{x:1,y:1},{x:5,y:1},{x:0,y:2},{x:1,y:2},{x:4,y:2},{x:5,y:3},{x:2,y:4},{x:3,y:4},{x:1,y:5},{x:4,y:5},{x:5,y:5},{x:0,y:6},{x:4,y:6},{x:5,y:6},{x:1,y:7},{x:5,y:7}],
-        '~': [{x:1,y:3},{x:2,y:2},{x:3,y:2},{x:4,y:3},{x:5,y:2}],
-		"'": [{x:2,y:0},{x:2,y:1}],
-'"': [{x:1,y:0},{x:1,y:1},{x:3,y:0},{x:3,y:1}],
-"'": [{x:2,y:0},{x:2,y:1}],
-'_': [{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7}],
-'-': [{x:1,y:3},{x:2,y:3},{x:3,y:3},{x:4,y:3}],
-'^': [{x:2,y:0},{x:1,y:1},{x:3,y:1}],
-		'<': [{x:4,y:1},{x:3,y:2},{x:2,y:3},{x:1,y:4},{x:2,y:5},{x:3,y:6},{x:4,y:7}],
-		'>': [{x:1,y:1},{x:2,y:2},{x:3,y:3},{x:4,y:4},{x:3,y:5},{x:2,y:6},{x:1,y:7}],
-		'|': [{x:2,y:1},{x:2,y:2},{x:2,y:3},{x:2,y:4},{x:2,y:5},{x:2,y:6},{x:2,y:7}],
-
-        // Space character
-        ' ': [],
-
-        // Unknown character pattern
-        'unknown': [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:0,y:4},{x:0,y:5},{x:0,y:6},{x:0,y:7},{x:1,y:7},{x:2,y:7},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:5,y:1},{x:5,y:2},{x:5,y:3},{x:5,y:4},{x:5,y:5},{x:5,y:6}]
-    };
+function getIcon(name) {
+    return icons.find(icon => icon.name.toLowerCase() === name.toLowerCase()) || icons[0]; // Default to first icon if not found
 }
 
-/* Begin Global Variables */
-let scene, camera, renderer, elements;
-const letterPatterns = getLetterPatterns();
-let elementSize = 0.1;
-let letterSpacing = 0.5;
-let lineHeight = 2;
-let letterScale = 1;
-let flyInSpeed = 1.5;
-let disperseSpeed = 1.5;
-let elementColor = 0xFFFFFF;
-let systemType = 'cube';
-let flyInStyle = 'fadeIn';
-let disperseStyle = 'fadeOut';
-let maxElements = 10000;
-let currentText = "";
-let textGroup = new THREE.Group();
-/* End Global Variables */
-
-/* Begin Initialization */
-function init() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 15;
-
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('canvas').appendChild(renderer.domElement);
-
-    addStars();
-
-    elements = new THREE.Group();
-    scene.add(elements);
-    scene.add(textGroup);
-
-    createElements();
-
-    window.addEventListener('resize', onWindowResize, false);
-    document.getElementById('textInput').addEventListener('input', handleTextInput);
-    document.getElementById('disperseBtn').addEventListener('click', disperse);
-    document.getElementById('reformBtn').addEventListener('click', reform);
-
-    document.getElementById('elementSize').addEventListener('input', updateElementSize);
-    document.getElementById('letterSpacing').addEventListener('input', updateLetterSpacing);
-    document.getElementById('lineHeight').addEventListener('input', updateLineHeight);
-    document.getElementById('letterScale').addEventListener('input', updateLetterScale);
-    document.getElementById('flyInSpeed').addEventListener('input', updateFlyInSpeed);
-    document.getElementById('disperseSpeed').addEventListener('input', updateDisperseSpeed);
-    document.getElementById('elementColor').addEventListener('input', updateElementColor);
-    document.getElementById('systemType').addEventListener('change', updateSystemType);
-    document.getElementById('flyInStyle').addEventListener('change', updateFlyInStyle);
-    document.getElementById('disperseStyle').addEventListener('change', updateDisperseStyle);
-
-    animate();
-}
-
-function addStars() {
-    const starGeometry = new THREE.BufferGeometry();
-    const starMaterial = new THREE.PointsMaterial({color: 0xFFFFFF, size: 0.02});
-
-    const starVertices = [];
-    for (let i = 0; i < 10000; i++) {
-        const x = (Math.random() - 0.5) * 2000;
-        const y = (Math.random() - 0.5) * 2000;
-        const z = -Math.random() * 2000;
-        starVertices.push(x, y, z);
-    }
-
-    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-    const stars = new THREE.Points(starGeometry, starMaterial);
-    scene.add(stars);
-}
-
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
-/* End Initialization */
-
-/* Begin Element Creation and Management */
-function createElements() {
-    elements.clear();
-    for (let i = 0; i < maxElements; i++) {
-        const element = createElement();
-        element.position.set(
-            (Math.random() - 0.5) * 40,
-            (Math.random() - 0.5) * 40,
-            (Math.random() - 0.5) * 40
-        );
-        element.visible = false;
-        elements.add(element);
-    }
-}
-
-function createElement() {
-    let geometry, material;
-    switch (systemType) {
-        case 'cube':
-            geometry = new THREE.BoxGeometry(1, 1, 1);
-            material = new THREE.MeshBasicMaterial({
-                color: elementColor,
-                transparent: true,
-                opacity: 0.8
-            });
-            const cube = new THREE.Mesh(geometry, material);
-            cube.scale.setScalar(elementSize);
-            return cube;
-        case 'sphere':
-            geometry = new THREE.SphereGeometry(0.5, 32, 32);
-            material = new THREE.MeshBasicMaterial({
-                color: elementColor,
-                transparent: true,
-                opacity: 0.8
-            });
-            const sphere = new THREE.Mesh(geometry, material);
-            sphere.scale.setScalar(elementSize);
-            return sphere;
-        case 'particle':
-            geometry = new THREE.BufferGeometry();
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, 0], 3));
-            material = new THREE.PointsMaterial({
-                color: elementColor,
-                size: elementSize,
-                transparent: true,
-                opacity: 0.8
-            });
-            return new THREE.Points(geometry, material);
-    }
-}
-/* End Element Creation and Management */
-
-/* Begin Text Handling */
-function handleTextInput() {
-    const newText = document.getElementById('textInput').value;
-    const oldText = currentText;
+function bringToFront(window) {
+    highestZIndex++;
+    window.style.zIndex = highestZIndex;
     
-    // Find deleted characters and trigger disperse animation
-    for (let i = 0; i < oldText.length; i++) {
-        if (newText[i] !== oldText[i]) {
-            const charGroup = textGroup.children.find(group => group.userData.index === i);
-            if (charGroup) {
-                disperseCharacter(charGroup);
-                textGroup.remove(charGroup);
-            }
-            break; // Only animate the first changed character
-        }
-    }
+    document.querySelectorAll('.window').forEach(w => w.classList.remove('active'));
+    document.querySelectorAll('.taskbar-item').forEach(t => t.classList.remove('active'));
     
-    updateText(newText);
+    window.classList.add('active');
+    const app = window.getAttribute('data-app');
+    const taskbarItem = document.querySelector(`.taskbar-item[data-app="${app}"]`);
+    if (taskbarItem) {
+        taskbarItem.classList.add('active');
+    }
 }
 
-function updateText(newText) {
-    currentText = newText;
+/* <Desktop Management> */
+function initializeDesktop() {
+    const desktopIcons = icons.filter(icon => icon.x !== undefined && icon.y !== undefined);
+    desktopIcons.forEach(icon => createIcon(icon.name, icon.x, icon.y, icon.svg));
+    document.querySelectorAll('.icon').forEach(makeIconDraggable);
+}
 
-    let lines = currentText.split('\n');
-    let maxLineWidth = Math.max(...lines.map(line => line.length));
-    let offsetY = (lines.length - 1) * lineHeight / 2;
+function createIcon(name, x, y, svg) {
+    const icon = document.createElement('div');
+    icon.className = 'icon';
+    icon.style.left = `${x}px`;
+    icon.style.top = `${y}px`;
+    icon.innerHTML = `
+        <div class="icon-image">${svg}</div>
+        <div>${name}</div>
+    `;
+    icon.addEventListener('dblclick', () => openWindow(name));
+    makeIconDraggable(icon); // Use the new function here
+    desktop.appendChild(icon);
+}
 
-    // Remove excess characters
-    for (let i = textGroup.children.length - 1; i >= 0; i--) {
-        const charGroup = textGroup.children[i];
-        if (charGroup.userData.index >= currentText.length) {
-            disperseCharacter(charGroup);
-            textGroup.remove(charGroup);
+function createNewFolder() {
+    const name = 'New Folder';
+    const x = Math.random() * (desktop.clientWidth - 70);
+    const y = Math.random() * (desktop.clientHeight - 70);
+    const svg = '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>';
+    const icon = createIcon(name, x, y, svg);
+    makeIconDraggable(icon);
+    icons.push({ name, x, y, svg });
+}
+
+function createTextFile(x, y) {
+    const name = 'New File.txt';
+    const svg = '<svg viewBox="0 0 24 24" width="32" height="32"><path fill="#fff" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>';
+    const icon = createIcon(name, x, y, svg);
+    icon.addEventListener('dblclick', () => openTextFileEditor(name));
+    icons.push({ name, x, y, svg });
+}
+
+function openTextFileEditor(name) {
+    const content = localStorage.getItem(name) || '';
+    const window = createWindow(name, 'text-editor');
+    window.querySelector('.window-content').innerHTML = `
+        <textarea style="width: 100%; height: 100%; resize: none;">${content}</textarea>
+    `;
+    const textarea = window.querySelector('textarea');
+    textarea.addEventListener('input', () => {
+        localStorage.setItem(name, textarea.value);
+    });
+}
+/* </Desktop Management> */
+
+/* <Draggable - Resize Functionality> */
+function makeDraggable(element) {
+    const header = element.querySelector('.window-header');
+    if (!header) return;
+
+    let isDragging = false;
+    let startX, startY;
+
+    header.addEventListener('mousedown', initDrag);
+
+    function initDrag(e) {
+        isDragging = true;
+        startX = e.clientX - element.offsetLeft;
+        startY = e.clientY - element.offsetTop;
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+            const newX = e.clientX - startX;
+            const newY = e.clientY - startY;
+            element.style.left = `${newX}px`;
+            element.style.top = `${newY}px`;
         }
     }
 
-    let globalIndex = 0;
-    lines.forEach((line, lineIndex) => {
-        let offsetX = -maxLineWidth * letterSpacing / 2;
+    function stopDrag() {
+        isDragging = false;
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', stopDrag);
+    }
+}
 
-        for (let i = 0; i < line.length; i++) {
-            const char = line[i];
-            let charGroup = textGroup.children.find(group => group.userData.index === globalIndex);
+function makeResizable(element) {
+    const handles = ['right', 'bottom', 'corner'];
+    const minWidth = 200;
+    const minHeight = 100;
 
-            if (!charGroup) {
-                // New character added
-                charGroup = createCharacter(char, offsetX, offsetY - lineIndex * lineHeight);
-                charGroup.userData.char = char;
-                charGroup.userData.index = globalIndex;
-                textGroup.add(charGroup);
-            } else {
-                // Update existing character position
-                gsap.to(charGroup.position, {
-                    x: offsetX,
-                    y: offsetY - lineIndex * lineHeight,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
+    handles.forEach(type => {
+        const handle = document.createElement('div');
+        handle.className = `resize-handle ${type}-handle`;
+        element.appendChild(handle);
+
+        let startX, startY, startWidth, startHeight;
+
+        const initResize = (e) => {
+            e.stopPropagation();
+            startX = e.clientX;
+            startY = e.clientY;
+            startWidth = parseInt(getComputedStyle(element).width, 10);
+            startHeight = parseInt(getComputedStyle(element).height, 10);
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResize);
+        };
+
+        const resize = (e) => {
+            if (type === 'right' || type === 'corner') {
+                const width = Math.max(minWidth, startWidth + e.clientX - startX);
+                element.style.width = `${width}px`;
             }
+            if (type === 'bottom' || type === 'corner') {
+                const height = Math.max(minHeight, startHeight + e.clientY - startY);
+                element.style.height = `${height}px`;
+            }
+        };
 
-            offsetX += letterSpacing;
-            globalIndex++;
+        const stopResize = () => {
+            document.removeEventListener('mousemove', resize);
+            document.removeEventListener('mouseup', stopResize);
+        };
+
+        handle.addEventListener('mousedown', initResize);
+    });
+}
+/* </Draggable - Resize Functionality> */
+
+/* <Window Management> */
+function openWindow(name) {
+    let existingWindow = document.querySelector(`.window[data-app="${name}"]`);
+    if (existingWindow) {
+        if (existingWindow.style.display === 'none') {
+            const taskbarItem = document.querySelector(`.taskbar-item[data-app="${name}"]`);
+            const rect = taskbarItem.getBoundingClientRect();
+            existingWindow.style.transformOrigin = `${rect.left}px ${rect.top}px`;
+            existingWindow.style.transform = 'scale(0.1)';
+            existingWindow.style.opacity = '0';
+            existingWindow.classList.add('maximizing');
+            existingWindow.style.display = 'block';
+            requestAnimationFrame(() => {
+                existingWindow.style.transform = 'scale(1)';
+                existingWindow.style.opacity = '1';
+            });
+            setTimeout(() => {
+                existingWindow.classList.remove('maximizing');
+                existingWindow.style.transform = '';
+                existingWindow.style.opacity = '';
+            }, 300);
+        }
+        bringToFront(existingWindow);
+        return;
+    }
+
+    const icon = getIcon(name);
+    const window = document.createElement('div');
+    window.className = 'window';
+    window.setAttribute('data-app', name);
+    window.style.width = '400px';
+    window.style.height = '300px';
+    window.style.left = '100px';
+    window.style.top = '100px';
+    window.innerHTML = `
+        <div class="window-header">
+            <div class="window-icon">${icon.svg}</div>
+            <span>${name}</span>
+            <div class="window-controls">
+                <span class="minimize">-</span>
+                <span class="maximize">□</span>
+                <span class="close">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            ${getWindowContent(name)}
+        </div>
+    `;
+    desktop.appendChild(window);
+    window.style.display = 'block';
+    makeDraggable(window);
+    makeResizable(window);
+    bringToFront(window);
+
+    window.addEventListener('mousedown', () => bringToFront(window));
+
+    window.querySelector('.close').addEventListener('click', () => {
+        window.remove();
+        if (taskbarManagement && taskbarManagement.removeWindow) {
+            taskbarManagement.removeWindow(name);
         }
     });
 
-    // Sort textGroup children by index for correct rendering order
-    textGroup.children.sort((a, b) => a.userData.index - b.userData.index);
-}
+    window.querySelector('.minimize').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const rect = window.getBoundingClientRect();
+        const taskbarItem = document.querySelector(`.taskbar-item[data-app="${name}"]`);
+        const taskbarRect = taskbarItem.getBoundingClientRect();
 
-function createCharacter(char, x, y) {
-    const charGroup = new THREE.Group();
-    charGroup.userData.char = char;
+        window.style.transformOrigin = `${taskbarRect.left - rect.left}px ${taskbarRect.top - rect.top}px`;
 
-    if (char === ' ') {
-        // Create an empty group for spaces
-        return charGroup;
-    }
-
-    const pattern = letterPatterns[char] || letterPatterns[char.toLowerCase()] || letterPatterns['unknown'];
-    pattern.forEach((coord, index) => {
-        const element = createElement();
-        const targetX = x + coord.x * elementSize * letterScale;
-        const targetY = y - coord.y * elementSize * letterScale;
-        const targetZ = 0;
-
-        charGroup.add(element);
-        applyFlyInAnimation(element, targetX, targetY, targetZ, index * 0.05);
+        window.classList.add('minimizing');
+        setTimeout(() => {
+            window.style.display = 'none';
+            window.classList.remove('minimizing');
+        }, 300);
+    });
+    
+    window.querySelector('.maximize').addEventListener('click', () => {
+        if (window.style.width === '100%') {
+            window.style.width = '400px';
+            window.style.height = '300px';
+            window.style.top = '100px';
+            window.style.left = '100px';
+        } else {
+            window.style.width = '100%';
+            window.style.height = 'calc(100% - 40px)';
+            window.style.top = '0';
+            window.style.left = '0';
+        }
     });
 
-    return charGroup;
+    initializeAppFunctionality(name, window);
+    
+    if (taskbarManagement && taskbarManagement.createTaskbarItem) {
+        taskbarManagement.createTaskbarItem(name);
+    }
+    bringToFront(window);
 }
-/* End Text Handling */
 
-/* Begin Animation Functions */
-function applyFlyInAnimation(element, targetX, targetY, targetZ, delay) {
-    const duration = 1 / flyInSpeed;
-    element.position.set((Math.random() - 0.5) * 40, (Math.random() - 0.5) * 40, (Math.random() - 0.5) * 40);
-    element.scale.setScalar(elementSize);
-    element.material.opacity = 0;
-    element.visible = true;
+function createWindow(name, type = 'default') {
+    const icon = getIcon(name);
+    const window = document.createElement('div');
+    window.className = 'window';
+    window.setAttribute('data-app', name);
+    window.style.width = '400px';
+    window.style.height = '300px';
+    window.style.left = '100px';
+    window.style.top = '100px';
+    window.innerHTML = `
+        <div class="window-header">
+            <div class="window-icon">${icon.svg}</div>
+            <span>${name}</span>
+            <div class="window-controls">
+                <span class="minimize">-</span>
+                <span class="maximize">□</span>
+                <span class="close">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            ${getWindowContent(name, type)}
+        </div>
+    `;
 
-    switch (flyInStyle) {
-        case 'fadeIn':
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.out"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration,
-                delay: delay
-            });
+    window.querySelector('.close').addEventListener('click', () => {
+        window.remove();
+        if (taskbarManagement && taskbarManagement.removeWindow) {
+            taskbarManagement.removeWindow(name);
+        }
+    });
+
+    window.querySelector('.minimize').addEventListener('click', () => {
+        window.style.display = 'none';
+    });
+    
+    window.querySelector('.maximize').addEventListener('click', () => {
+        if (window.style.width === '100%') {
+            window.style.width = '400px';
+            window.style.height = '300px';
+            window.style.top = '100px';
+            window.style.left = '100px';
+        } else {
+            window.style.width = '100%';
+            window.style.height = 'calc(100% - 40px)';
+            window.style.top = '0';
+            window.style.left = '0';
+        }
+    });
+
+    return window;
+}
+
+function getWindowContent(name, type) {
+    switch (type) {
+        case 'text-editor':
+            return '<textarea style="width: 100%; height: 100%; resize: none;"></textarea>';
+        default:
+            switch (name.toLowerCase()) {
+                case 'today':
+                    return `
+                        <div class="calendar">
+                            <div class="calendar-header">May 2023</div>
+                            ${generateCalendar()}
+                        </div>
+                    `;
+                case 'chat':
+                    return `
+                        <div class="chat-messages"></div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type a message...">
+                            <button>Send</button>
+                        </div>
+                    `;
+                case 'art':
+                    return '<canvas class="art-canvas" width="350" height="250"></canvas>';
+                case 'academy':
+                    return `
+                        <h2>Welcome to the Academy</h2>
+                        <p>Start learning today!</p>
+                        <select id="course-select">
+                            <option value="">Select a course</option>
+                            <option value="math">Mathematics</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                        </select>
+                        <div id="course-content"></div>
+                    `;
+                case 'work':
+                    return `
+                        <h2>Work Dashboard</h2>
+                        <div id="task-list">
+                            <h3>Your tasks for today:</h3>
+                            <ul>
+                                <li>Complete project proposal</li>
+                                <li>Review team progress</li>
+                                <li>Schedule client meeting</li>
+                            </ul>
+                        </div>
+                        <button id="add-task">Add New Task</button>
+                    `;
+                case 'fun':
+                    return `
+                        <h2>Fun Zone</h2>
+                        <p>Choose a game to play:</p>
+                        <ul id="game-list">
+                            <li><button class="game-button" data-game="tictactoe">Tic Tac Toe</button></li>
+                            <li><button class="game-button" data-game="snake">Snake</button></li>
+                            <li><button class="game-button" data-game="tetris">Tetris</button></li>
+                        </ul>
+                        <div id="game-area"></div>
+                    `;
+                default:
+                    return `Content for ${name}`;
+            }
+    }
+}
+/* </Window Management> */
+
+/* <Application Functionality> */
+function initializeAppFunctionality(name, window) {
+    switch (name.toLowerCase()) {
+        case 'chat':
+            initializeChatApp(window);
             break;
-        case 'fromSides':
-            element.position.set(targetX > 0 ? 20 : -20, targetY, targetZ);
-            gsap.to(element.position, {
-                x: targetX,
-                duration: duration,
-                delay: delay,
-                ease: "elastic.out(1, 0.5)"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration / 2,
-                delay: delay
-            });
+        case 'art':
+            initializeArtApp(window);
             break;
-        case 'fromBottom':
-            element.position.set(targetX, -20, targetZ);
-            gsap.to(element.position, {
-                y: targetY,
-                duration: duration,
-                delay: delay,
-                ease: "power2.out"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration / 2,
-                delay: delay
-            });
+        case 'today':
+            initializeCalendarApp(window);
             break;
-        case 'spiral':
-            const spiralRadius = 10;
-            const spiralTurns = 2;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = (1 - progress) * Math.PI * 2 * spiralTurns;
-                    element.position.x += Math.cos(angle) * (spiralRadius * (1 - progress));
-                    element.position.y += Math.sin(angle) * (spiralRadius * (1 - progress));
-                }
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration,
-                delay: delay
-            });
+        case 'academy':
+            initializeAcademyApp(window);
             break;
-        case 'elastic':
-            gsap.from(element.position, {
-                x: targetX + (Math.random() - 0.5) * 20,
-                y: targetY + (Math.random() - 0.5) * 20,
-                z: targetZ - 20,
-                duration: duration,
-                delay: delay,
-                ease: "elastic.out(1, 0.3)"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration / 2,
-                delay: delay
-            });
+        case 'work':
+            initializeWorkApp(window);
             break;
-        case 'bounce':
-            element.position.set(targetX, targetY - 20, targetZ);
-            gsap.to(element.position, {
-                y: targetY,
-                duration: duration,
-                delay: delay,
-                ease: "bounce.out"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration / 2,
-                delay: delay
-            });
+        case 'fun':
+            initializeFunApp(window);
             break;
-        case 'wave':
-            const waveAmplitude = 5;
-            const wavePeriod = 2;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    element.position.y += Math.sin(progress * Math.PI * wavePeriod) * waveAmplitude * (1 - progress);
-                }
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'vortex':
-            const vortexRadius = 15;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = (1 - progress) * Math.PI * 6;
-                    element.position.x += Math.cos(angle) * (vortexRadius * (1 - progress));
-                    element.position.y += Math.sin(angle) * (vortexRadius * (1 - progress));
-                }
-            });
-            gsap.to(element.scale, {
-                x: elementSize,
-                y: elementSize,
-                z: elementSize,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'blackHole':
-            const blackHoleRadius = 20;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power3.out",
-                onStart: function() {
-                    element.position.set(0, 0, -50);
-                },
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = progress * Math.PI * 10;
-                    const radius = blackHoleRadius * (1 - progress);
-                    element.position.x += Math.cos(angle) * radius;
-                    element.position.y += Math.sin(angle) * radius;
-                }
-            });
-            gsap.from(element.scale, {
-                x: 0,
-                y: 0,
-                z: 0,
-                duration: duration,
-                delay: delay,
-                ease: "power3.out"
-            });
-            gsap.to(element.material, {
-                opacity: 1,
-                duration: duration,
-                delay: delay
-            });
-            break;
+        default:
+            console.log(`No specific initialization for ${name}`);
     }
 }
 
-function applyDisperseAnimation(element, delay) {
-    const duration = 1 / disperseSpeed;
-    const targetX = (Math.random() - 0.5) * 40;
-    const targetY = (Math.random() - 0.5) * 40;
-    const targetZ = (Math.random() - 0.5) * 40;
+function initializeChatApp(window) {
+    const input = window.querySelector('.chat-input input');
+    const sendButton = window.querySelector('.chat-input button');
+    const messages = window.querySelector('.chat-messages');
 
-    switch (disperseStyle) {
-        case 'fadeOut':
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'toSides':
-            gsap.to(element.position, {
-                x: element.position.x > 0 ? 20 : -20,
-                duration: duration,
-                delay: delay,
-                ease: "power2.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration / 2,
-                delay: delay + duration / 2
-            });
-            break;
-        case 'toBottom':
-            gsap.to(element.position, {
-                y: -20,
-                duration: duration,
-                delay: delay,
-                ease: "power2.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration / 2,
-                delay: delay + duration / 2
-            });
-            break;
-        case 'spiral':
-            const spiralRadius = 10;
-            const spiralTurns = 2;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = progress * Math.PI * 2 * spiralTurns;
-                    element.position.x += Math.cos(angle) * (spiralRadius * progress);
-                    element.position.y += Math.sin(angle) * (spiralRadius * progress);
-                }
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'elastic':
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "elastic.in(1, 0.3)"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration / 2,
-                delay: delay + duration / 2
-            });
-            break;
-        case 'bounce':
-            gsap.to(element.position, {
-                y: element.position.y + 20,
-                duration: duration,
-                delay: delay,
-                ease: "bounce.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration / 2,
-                delay: delay + duration / 2
-            });
-            break;
-        case 'wave':
-            const waveAmplitude = 5;
-            const wavePeriod = 2;
-            gsap.to(element.position, {
-                x: targetX,
-                y: targetY,
-                z: targetZ,
-                duration: duration,
-                delay: delay,
-                ease: "power2.inOut",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    element.position.y += Math.sin(progress * Math.PI * wavePeriod) * waveAmplitude * progress;
-                }
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'vortex':
-            const vortexRadius = 15;
-            gsap.to(element.position, {
-                x: 0,
-                y: 0,
-                z: -30,
-                duration: duration,
-                delay: delay,
-                ease: "power2.in",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = progress * Math.PI * 6;
-                    element.position.x += Math.cos(angle) * (vortexRadius * progress);
-                    element.position.y += Math.sin(angle) * (vortexRadius * progress);
-                }
-            });
-            gsap.to(element.scale, {
-                x: 0,
-                y: 0,
-                z: 0,
-                duration: duration,
-                delay: delay,
-                ease: "power2.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration,
-                delay: delay
-            });
-            break;
-        case 'blackHole':
-            gsap.to(element.position, {
-                x: 0,
-                y: 0,
-                z: -50,
-                duration: duration,
-                delay: delay,
-                ease: "power3.in",
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const angle = progress * Math.PI * 10;
-                    const radius = 20 * (1 - progress);
-                    element.position.x += Math.cos(angle) * radius;
-                    element.position.y += Math.sin(angle) * radius;
-                }
-            });
-            gsap.to(element.scale, {
-                x: 0,
-                y: 0,
-                z: 0,
-                duration: duration,
-                delay: delay,
-                ease: "power3.in"
-            });
-            gsap.to(element.material, {
-                opacity: 0,
-                duration: duration / 2,
-                delay: delay + duration / 2
-            });
-            break;
+    sendButton.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+        const message = input.value.trim();
+        if (message) {
+            messages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        }
+    }
+}
+
+function initializeArtApp(window) {
+    const canvas = window.querySelector('.art-canvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    function startDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
     }
 
-    gsap.delayedCall(duration + delay, () => {
-        element.visible = false;
-    });
-}
-/* End Animation Functions */
+    function draw(e) {
+        if (!isDrawing) return;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
 
-/* Begin UI Interaction Functions */
-function disperse() {
-    textGroup.children.forEach(charGroup => {
-        disperseCharacter(charGroup);
-    });
-    gsap.delayedCall(1 / disperseSpeed, () => {
-        textGroup.clear();
-        document.getElementById('textInput').value = '';
-        currentText = '';
-    });
+    function stopDrawing() {
+        isDrawing = false;
+    }
 }
 
-function reform() {
-    updateText(currentText);
-}
-
-function disperseCharacter(charGroup) {
-    charGroup.children.forEach((element, index) => {
-        applyDisperseAnimation(element, index * 0.05);
-    });
-}
-
-function updateElementSize() {
-    elementSize = parseFloat(document.getElementById('elementSize').value);
-    document.getElementById('elementSizeValue').textContent = elementSize.toFixed(2);
-    reform();
-}
-
-function updateLetterSpacing() {
-    letterSpacing = parseFloat(document.getElementById('letterSpacing').value);
-    document.getElementById('letterSpacingValue').textContent = letterSpacing.toFixed(2);
-    reform();
-}
-
-function updateLineHeight() {
-    lineHeight = parseFloat(document.getElementById('lineHeight').value);
-    document.getElementById('lineHeightValue').textContent = lineHeight.toFixed(2);
-    reform();
-}
-
-function updateLetterScale() {
-    letterScale = parseFloat(document.getElementById('letterScale').value);
-    document.getElementById('letterScaleValue').textContent = letterScale.toFixed(2);
-    reform();
-}
-
-function updateFlyInSpeed() {
-    flyInSpeed = parseFloat(document.getElementById('flyInSpeed').value);
-    document.getElementById('flyInSpeedValue').textContent = flyInSpeed.toFixed(2);
-}
-
-function updateDisperseSpeed() {
-    disperseSpeed = parseFloat(document.getElementById('disperseSpeed').value);
-    document.getElementById('disperseSpeedValue').textContent = disperseSpeed.toFixed(2);
-}
-
-function updateElementColor() {
-    elementColor = new THREE.Color(document.getElementById('elementColor').value);
-    textGroup.children.forEach(charGroup => {
-        charGroup.children.forEach(element => {
-            gsap.to(element.material.color, {
-                r: elementColor.r,
-                g: elementColor.g,
-                b: elementColor.b,
-                duration: 0.5
-            });
+function initializeCalendarApp(window) {
+    const calendarDays = window.querySelectorAll('.calendar-day');
+    calendarDays.forEach(day => {
+        day.addEventListener('click', () => {
+            if (day.textContent) {
+                alert(`You clicked on ${day.textContent} May 2023`);
+            }
         });
     });
 }
 
-function updateSystemType() {
-    systemType = document.getElementById('systemType').value;
-    reform();
+function generateCalendar() {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    let calendarHTML = days.map(day => `<div class="calendar-day">${day}</div>`).join('');
+    
+    const today = new Date();
+    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+    for (let i = 0; i < firstDay.getDay(); i++) {
+        calendarHTML += '<div class="calendar-day"></div>';
+    }
+
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+        const isToday = i === today.getDate() ? 'today' : '';
+        calendarHTML += `<div class="calendar-day ${isToday}">${i}</div>`;
+    }
+
+    return calendarHTML;
 }
 
-function updateFlyInStyle() {
-    flyInStyle = document.getElementById('flyInStyle').value;
+function initializeAcademyApp(window) {
+    const courseSelect = window.querySelector('#course-select');
+    const courseContent = window.querySelector('#course-content');
+
+    courseSelect.addEventListener('change', (e) => {
+        const course = e.target.value;
+        if (course) {
+            courseContent.innerHTML = `<p>You've selected the ${course} course. Content coming soon!</p>`;
+        } else {
+            courseContent.innerHTML = '';
+        }
+    });
 }
 
-function updateDisperseStyle() {
-    disperseStyle = document.getElementById('disperseStyle').value;
-}
-/* End UI Interaction Functions */
+function initializeWorkApp(window) {
+    const addTaskButton = window.querySelector('#add-task');
+    const taskList = window.querySelector('#task-list ul');
 
-/* Begin Entry Point */
-window.addEventListener('DOMContentLoaded', (event) => {
-    init(); // Make sure `init` is your starting function
+    addTaskButton.addEventListener('click', () => {
+        const newTask = prompt('Enter a new task:');
+        if (newTask) {
+            const li = document.createElement('li');
+            li.textContent = newTask;
+            taskList.appendChild(li);
+        }
+    });
+}
+
+function initializeFunApp(window) {
+    const gameButtons = window.querySelectorAll('.game-button');
+    const gameArea = window.querySelector('#game-area');
+
+    gameButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const game = button.getAttribute('data-game');
+            gameArea.innerHTML = `<p>You've selected to play ${game}. Game loading...</p>`;
+        });
+    });
+}
+/* </Application Functionality> */
+
+/* <Taskbar Management> */
+function initializeTaskbar() {
+    const taskbar = document.getElementById('taskbar');
+    const openWindows = new Set();
+
+    const datetimeDiv = document.createElement('div');
+    datetimeDiv.id = 'datetime';
+    taskbar.appendChild(datetimeDiv);
+
+    function updateDateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+        const dateString = now.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' });
+        
+        datetimeDiv.innerHTML = `<div class="time">${timeString}</div><div class="date">${dateString}</div>`;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    function createTaskbarItem(app) {
+        if (openWindows.has(app)) return;
+    
+        openWindows.add(app);
+        const taskbarItem = document.createElement('div');
+        taskbarItem.className = 'taskbar-item';
+        taskbarItem.setAttribute('data-app', app);
+        
+        const icon = getIcon(app);
+        
+        taskbarItem.innerHTML = `
+            <div class="taskbar-icon">${icon.svg}</div>
+            <span>${app}</span>
+        `;
+        
+        taskbarItem.addEventListener('click', () => {
+            const appWindow = document.querySelector(`.window[data-app="${app}"]`);
+            if (appWindow) {
+                if (appWindow.style.display === 'none') {
+                    const rect = taskbarItem.getBoundingClientRect();
+                    appWindow.style.transformOrigin = `${rect.left}px ${rect.top}px`;
+                    appWindow.style.transform = 'scale(0.1)';
+                    appWindow.style.opacity = '0';
+                    appWindow.style.display = 'block';
+                    
+                    requestAnimationFrame(() => {
+                        appWindow.classList.add('maximizing');
+                        appWindow.style.transform = 'scale(1)';
+                        appWindow.style.opacity = '1';
+                    });
+        
+                    appWindow.addEventListener('transitionend', function handler() {
+                        appWindow.classList.remove('maximizing');
+                        appWindow.style.transform = '';
+                        appWindow.style.opacity = '';
+                        appWindow.removeEventListener('transitionend', handler);
+                    });
+                    bringToFront(appWindow);
+                } else if (appWindow.classList.contains('active')) {
+                    const rect = appWindow.getBoundingClientRect();
+                    const taskbarRect = taskbarItem.getBoundingClientRect();
+                    appWindow.style.transformOrigin = `${taskbarRect.left - rect.left}px ${taskbarRect.top - rect.top}px`;
+                    appWindow.classList.add('minimizing');
+                    setTimeout(() => {
+                        appWindow.style.display = 'none';
+                        appWindow.classList.remove('minimizing');
+                        taskbarItem.classList.remove('active');
+                    }, 300);
+                } else {
+                    bringToFront(appWindow);
+                }
+            }
+        });
+        
+        taskbar.appendChild(taskbarItem);
+    }
+
+    function removeWindow(app) {
+        openWindows.delete(app);
+        const taskbarItem = document.querySelector(`.taskbar-item[data-app="${app}"]`);
+        if (taskbarItem) {
+            taskbarItem.remove();
+        }
+    }
+
+    // Observe desktop for changes to update taskbar
+    const desktopObserver = new MutationObserver(() => {
+        const currentWindows = document.querySelectorAll('.window');
+        currentWindows.forEach(window => {
+            const app = window.getAttribute('data-app');
+            if (!openWindows.has(app)) {
+                createTaskbarItem(app);
+            }
+        });
+    });
+    desktopObserver.observe(desktop, { childList: true });
+
+    return { createTaskbarItem, removeWindow };
+}
+/* </Taskbar Management> */
+
+/* <Context Menu Logic> */
+function showContextMenu(e) {
+    e.preventDefault();
+    contextMenu.style.display = 'block';
+    contextMenu.style.left = `${e.clientX}px`;
+    contextMenu.style.top = `${e.clientY}px`;
+    
+    // Clear previous menu items
+    contextMenu.innerHTML = '';
+    
+    // Add "New Text File" option
+    const newTextFileOption = document.createElement('div');
+    newTextFileOption.textContent = 'New Text File';
+    newTextFileOption.addEventListener('click', () => {
+        createTextFile(e.clientX, e.clientY);
+        hideContextMenu();
+    });
+    contextMenu.appendChild(newTextFileOption);
+    
+    // Add other context menu options here
+}
+
+function hideContextMenu() {
+    contextMenu.style.display = 'none';
+}
+/* </Context Menu Logic> */
+
+/* <Start Menu Logic> */
+function toggleStartMenu() {
+    if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+        startMenu.style.display = 'block';
+        setTimeout(() => startMenu.classList.add('active'), 10);
+    } else {
+        startMenu.classList.remove('active');
+        setTimeout(() => startMenu.style.display = 'none', 300);
+    }
+}
+
+function initializeStartMenuItems() {
+    const startMenuItems = startMenu.querySelectorAll('.start-menu-item');
+    startMenuItems.forEach(item => {
+        const app = item.getAttribute('data-app');
+        const icon = getIcon(app);
+        item.innerHTML = `
+            <div class="start-menu-icon">${icon.svg}</div>
+            <span>${app}</span>
+        `;
+        
+        item.addEventListener('click', () => {
+            openWindow(app);
+            toggleStartMenu();
+        });
+    });
+}
+
+function smoothScrollStartMenu() {
+    startMenu.style.scrollBehavior = 'smooth';
+    startMenu.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        startMenu.scrollTop += e.deltaY;
+    });
+}
+/* </Start Menu Logic> */
+
+/* <Utility Functions> */
+function getRandomColor() {
+    return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+}
+
+function preventDefaultDragBehavior(e) {
+    e.preventDefault();
+}
+function makeIconDraggable(icon) {
+    let isDragging = false;
+    let startX, startY;
+
+    icon.addEventListener('mousedown', initDrag);
+
+    function initDrag(e) {
+        isDragging = true;
+        startX = e.clientX - icon.offsetLeft;
+        startY = e.clientY - icon.offsetTop;
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+            const newX = e.clientX - startX;
+            const newY = e.clientY - startY;
+            
+            // Ensure the icon stays within the desktop boundaries
+            const maxX = desktop.clientWidth - icon.offsetWidth;
+            const maxY = desktop.clientHeight - icon.offsetHeight;
+            
+            icon.style.left = `${Math.max(0, Math.min(newX, maxX))}px`;
+            icon.style.top = `${Math.max(0, Math.min(newY, maxY))}px`;
+        }
+    }
+
+    function stopDrag() {
+        isDragging = false;
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', stopDrag);
+    }
+}
+
+/* </Utility Functions> */
+
+/* <Error Handling> */
+window.onerror = function(message, source, lineno, colno, error) {
+    console.error('An error occurred:', message, 'at', source, lineno, colno);
+    alert('An error occurred. Please check the console for more information.');
+    return true;
+};
+/* </Error Handling> */
+
+/* <Windows Logo> */
+function initializeWindowsLogo() {
+    const windowsLogo = document.getElementById('windows-logo');
+    windowsLogo.addEventListener('click', () => {
+        alert('Windows 10 Simulation');
+    });
+}
+/* </Windows Logo> */
+
+/* <Initialization> */
+document.addEventListener('DOMContentLoaded', () => {
+    taskbarManagement = initializeTaskbar();
+    initializeDesktop();
+    initializeStartMenuItems();
+    initializeWindowsLogo();
+    smoothScrollStartMenu();
+
+    desktop.addEventListener('dragover', preventDefaultDragBehavior);
+    desktop.addEventListener('drop', preventDefaultDragBehavior);
+    
+    desktop.addEventListener('contextmenu', showContextMenu);
+    document.addEventListener('click', hideContextMenu);
+    document.getElementById('new-folder').addEventListener('click', createNewFolder);
+    document.getElementById('refresh').addEventListener('click', () => {
+        desktop.innerHTML = '';
+        icons.forEach(icon => createIcon(icon.name, icon.x, icon.y, icon.svg));
+    });
+    
+    startButton.addEventListener('click', toggleStartMenu);
+    
+    
 });
-/* End Entry Point */
+/* </Initialization> */
 
-// Note: Place the getLetterPatterns() function at the beginning of the file, just after the global variables section.
-
-
-/*Certainly! I'm happy to provide an in-depth review of your project. It's impressive that you've developed this interactive text animation system through AI collaboration. Let's break down each section and analyze how they interact:
-
-Global Variables Section:
-This section sets up the foundation of your 3D scene and text animation system. It includes:
-
-
-Three.js scene elements (scene, camera, renderer)
-Text properties (letterSpacing, lineHeight, letterScale)
-Animation properties (flyInSpeed, disperseSpeed, flyInStyle, disperseStyle)
-Element properties (elementSize, elementColor, systemType)
-Text management (currentText, textGroup)
-
-These variables act as the central configuration for your entire application. They're accessed and modified throughout other sections, allowing for dynamic adjustments to the text display and animations.
-
-Initialization Section:
-This section sets up the 3D environment and binds UI events. Key points:
-
-
-Creates the Three.js scene, camera, and renderer
-Adds background stars for visual effect
-Sets up event listeners for UI controls and window resizing
-Calls createElements() to prepare the element pool
-Starts the animation loop
-
-The initialization is crucial as it prepares the 3D environment and connects the UI to the underlying system. It's the bridge between user interactions and the visual output.
-
-Element Creation and Management Section:
-This section handles the creation and pooling of 3D elements. Key functions:
-
-
-createElements(): Prepares a pool of reusable 3D elements
-createElement(): Creates individual 3D elements based on the current systemType
-
-This section is essential for performance optimization. By pre-creating and reusing elements, you avoid the overhead of constantly creating and destroying 3D objects.
-
-Text Handling Section:
-This section manages the text input and its conversion to 3D elements. Key functions:
-
-
-handleTextInput(): Processes changes in the input text
-updateText(): Converts text into 3D elements and positions them
-createCharacter(): Creates a group of 3D elements representing a single character
-
-This section is the core of your text-to-3D conversion process. It interprets the input text, manages the lifecycle of character representations, and handles text updates efficiently.
-
-Animation Functions Section:
-This section contains the logic for various animation styles. Key functions:
-
-
-applyFlyInAnimation(): Handles incoming character animations
-applyDisperseAnimation(): Handles outgoing character animations
-
-These functions use GSAP for smooth animations. They're highly modular, allowing for easy addition of new animation styles.
-
-UI Interaction Functions Section:
-This section handles user interactions with the control panel. It includes functions to update various properties like element size, letter spacing, animation speeds, etc.
-
-These functions act as a bridge between the UI controls and the underlying 3D system, allowing real-time adjustments to the text display and animations.
-
-Entry Point Section:
-This simple section ensures that the initialization occurs after the DOM is fully loaded.
-
-Interactions between sections:
-
-The Global Variables are accessed and modified by almost all other sections, acting as a shared state.
-The Initialization Section sets up the environment that the Element Creation and Text Handling sections operate within.
-The Text Handling Section uses the Element Creation Section to generate 3D representations of text.
-The Animation Functions Section is called by the Text Handling Section to animate characters.
-The UI Interaction Functions Section modifies Global Variables and triggers updates in the Text Handling and Animation sections.
-
-Overall, your project demonstrates a well-structured approach to creating an interactive 3D text animation system. The separation of concerns between different sections allows for modularity and easier maintenance.
-Areas for potential enhancement:
-
-Performance optimization for handling larger texts
-Adding more diverse animation styles
-Implementing text effects (e.g., color gradients, glow effects)
-Adding interactivity to individual characters
-Implementing a save/load system for user-created animations
-
-Your modular approach sets a good foundation for these enhancements. As you continue to develop, maintaining this clear separation of functionality will help manage complexity and make it easier to add new features.
-
-*/
+/* </JS> */

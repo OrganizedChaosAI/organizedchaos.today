@@ -1,4 +1,4 @@
-# A very simple Flask Hello World app for you to get started with...
+# Testing push
 
 from flask import Flask, render_template
 
@@ -7,6 +7,11 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template('index.html')
+
+
+@app.route('/alpha')
+def alpha():
+    return render_template('alpha.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
